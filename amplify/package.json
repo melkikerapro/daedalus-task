@@ -1,0 +1,23 @@
+{
+  "name": "daedalus-task-amplify",
+  "version": "1.0.0",
+  "description": "DaedalusTask Amplify Gen 2 backend",
+  "scripts": {
+    "sandbox": "ampx sandbox",
+    "deploy": "ampx pipeline-deploy --branch main",
+    "generate:outputs": "ampx generate outputs --branch main",
+    "generate:graphql": "ampx generate graphql-client-code --out ../frontend/src/infrastructure/amplify/graphql"
+  },
+  "dependencies": {
+    "aws-amplify": "^6.13.5"
+  },
+  "devDependencies": {
+    "@aws-amplify/backend": "^1.9.1",
+    "@aws-amplify/backend-cli": "^1.6.3",
+    "typescript": "^5.7.2",
+    "tsx": "^4.19.2",
+    "aws-cdk-lib": "^2.188.0",
+    "constructs": "^10.4.2",
+    "esbuild": "^0.25.4"
+  }
+}

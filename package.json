@@ -1,0 +1,25 @@
+{
+  "name": "daedalus-task",
+  "version": "1.0.0",
+  "private": true,
+  "description": "DaedalusTask – monorepo for task management app (React + Node.js + AWS Amplify Gen 2)",
+  "workspaces": [
+    "frontend",
+    "backend",
+    "amplify"
+  ],
+  "scripts": {
+    "dev:frontend": "npm run dev --workspace=frontend",
+    "dev:backend": "npm run dev --workspace=backend",
+    "dev:sandbox": "npm run sandbox --workspace=amplify",
+    "build:frontend": "npm run build --workspace=frontend",
+    "build:backend": "npm run build --workspace=backend",
+    "install:all": "npm install --workspaces",
+    "lint:all": "npm run lint --workspaces --if-present",
+    "test:all": "npm run test --workspaces --if-present",
+    "format:all": "npm run format --workspaces --if-present"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

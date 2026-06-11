@@ -1,0 +1,13 @@
+type Task @model @auth(rules: [{ allow: owner }, { allow: private, operations: [read] }]) {
+  id: ID!
+  title: String!
+  description: String
+  # Allowed values: todo | in-progress | done
+  status: String!
+  # Allowed values: low | medium | high
+  priority: String!
+  dueDate: AWSDateTime
+  assignedTo: String
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
