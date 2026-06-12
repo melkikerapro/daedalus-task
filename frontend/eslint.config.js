@@ -16,6 +16,10 @@ export default defineConfig([
       reactRefresh.configs.vite,
     ],
     languageOptions: {
+      parser: tseslint.parser,
+      parserOptions: {
+        tsconfigRootDir: import.meta.dirname,
+      },
       globals: globals.browser,
     },
   },

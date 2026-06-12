@@ -28,9 +28,9 @@ Creer un fichier `.env.local` dans `frontend/` avec:
 ```env
 VITE_AWS_REGION=eu-west-3
 VITE_APPSYNC_GRAPHQL_ENDPOINT=https://xxxx.appsync-api.eu-west-1.amazonaws.com/graphql
-VITE_COGNITO_USER_POOL_ID=eu-west-1_xxxxx
-VITE_COGNITO_USER_POOL_CLIENT_ID=xxxxxxxxxxxxxxxxxxxxxxxxxx
-VITE_COGNITO_IDENTITY_POOL_ID=eu-west-1:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+VITE_COGNITO_USER_POOL_ID=eu-west-3_AuNvJHZ1W
+VITE_COGNITO_USER_POOL_CLIENT_ID=4bg7bp7hsvshh817oos4su4hd1
+VITE_COGNITO_IDENTITY_POOL_ID=eu-west-3:559b930d-3c0c-4222-8a7d-eb2a4a1541a5
 ```
 
 Optionnel pour REST backend local:

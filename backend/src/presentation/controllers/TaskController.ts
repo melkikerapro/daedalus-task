@@ -33,6 +33,7 @@ export class TaskController {
   async create(req: Request, res: Response, next: NextFunction): Promise<void> {
     try {
       const task = await container.taskService.create(req.body);
+      console.log('Created task:', task);
       res.status(201).json(task);
     } catch (err) {
       next(err);
@@ -42,6 +43,7 @@ export class TaskController {
   async update(req: Request, res: Response, next: NextFunction): Promise<void> {
     try {
       const task = await container.taskService.update(getIdParam(req.params.id), req.body);
+      console.log('Updated task:', task);
       res.json(task);
     } catch (err) {
       next(err);
@@ -51,6 +53,7 @@ export class TaskController {
   async delete(req: Request, res: Response, next: NextFunction): Promise<void> {
     try {
       await container.taskService.delete(getIdParam(req.params.id));
+      console.log('Deleted task with id:', getIdParam(req.params.id));
       res.status(204).send();
     } catch (err) {
       next(err);

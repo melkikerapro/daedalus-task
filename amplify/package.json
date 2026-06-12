@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "DaedalusTask Amplify Gen 2 backend",
   "scripts": {
-    "sandbox": "ampx sandbox",
+    "sandbox": "ampx sandbox --dir-to-watch .",
     "deploy": "ampx pipeline-deploy --branch main",
     "generate:outputs": "ampx generate outputs --branch main",
     "generate:graphql": "ampx generate graphql-client-code --out ../frontend/src/infrastructure/amplify/graphql"

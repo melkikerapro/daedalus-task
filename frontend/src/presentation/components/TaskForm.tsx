@@ -30,7 +30,7 @@ export function TaskForm({ onSubmit }: TaskFormProps) {
     event.preventDefault();
     setSubmitting(true);
     setError(null);
-
+    console.log('Submitting form with data:', form);
     try {
       await onSubmit({
         ...form,

@@ -18,9 +18,11 @@ export class TaskService {
   }
 
   async create(input: CreateTaskInput): Promise<Task> {
+    console.log('Creating task with input:', input);
     if (!input.title.trim()) {
       throw new Error('Task title cannot be empty');
     }
+    console.log('Creating task with input:', input);
     return this.taskRepository.create(input);
   }
 
