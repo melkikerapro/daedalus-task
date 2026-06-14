@@ -1,16 +1,16 @@
 # DaedalusTask Monorepo
 
-Application de gestion de tâches en TypeScript avec architecture par couches:
+Application de gestion de tâches en TypeScript avec architecture en couches.
 
 - frontend: React + Vite
 - backend: Express + TypeScript
 - cloud: Amplify Gen 2 (Auth + Data)
 
-## Prérequis
+## Prerequis
 
 - Node.js 20+
 - npm 10+
-- Compte AWS configuré localement (credentials + region)
+- Compte AWS configure localement (credentials + region)
 
 ## Installation
 
@@ -22,7 +22,7 @@ npm install --workspaces
 
 ## Configuration Frontend (.env.local)
 
-Créer le fichier frontend/.env.local:
+Creer le fichier `frontend/.env.local`:
 
 ```env
 VITE_AWS_REGION=eu-west-1
@@ -38,9 +38,9 @@ Optionnel pour cibler le backend REST local:
 VITE_API_URL=http://localhost:3001/api
 ```
 
-## Démarrage local
+## Demarrage local
 
-Lancer 3 terminaux à la racine:
+Lancer 3 terminaux depuis la racine du monorepo:
 
 Terminal 1 (Amplify sandbox):
 
@@ -66,7 +66,7 @@ URLs utiles:
 - backend: http://localhost:3001
 - healthcheck: http://localhost:3001/health
 
-## Vérification
+## Verification
 
 ```bash
 npm run build:frontend
@@ -75,11 +75,24 @@ npm run test:all
 npm run lint:all
 ```
 
-## Déploiement Amplify
+## Deploiement Amplify
+
+Depuis la racine:
 
 ```bash
 npm run deploy --workspace=amplify
 ```
+
+Regenerer les outputs Amplify:
+
+```bash
+npm run generate:outputs --workspace=amplify
+```
+
+## Notes fonctionnelles
+
+- Le champ `dueDate` est stocke/envoye au format ISO datetime (compatible `AWSDateTime`).
+- Une valeur de formulaire de type `YYYY-MM-DD` est normalisee automatiquement avant envoi a Amplify.
 
 ## Commandes utiles
 
@@ -87,9 +100,8 @@ npm run deploy --workspace=amplify
 npm run format:all
 npm run test --workspace=frontend
 npm run test --workspace=backend
-npm run generate:outputs --workspace=amplify
 ```
 
-## Documentation complémentaire
+## Documentation complementaire
 
-- Frontend: voir frontend/README.md
+- Frontend: `frontend/README.md`
