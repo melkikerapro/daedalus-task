@@ -15,6 +15,7 @@ const initialForm: CreateTaskInput = {
   status: 'todo',
   priority: 'medium',
   dueDate: undefined,
+  assignedTo: '',
 };
 
 export function TaskForm({ onSubmit }: TaskFormProps) {

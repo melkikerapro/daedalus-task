@@ -6,6 +6,14 @@ import type { TaskRepository } from '../../domain/repositories/TaskRepository';
 // The client is typed against the generated Amplify schema
 const client = generateClient<Schema>();
 
+function normalizeDueDate(value?: string): string | undefined {
+  if (!value) return undefined;
+  if (value.includes('T')) return value;
+
+  const parsed = new Date(value);
+  return Number.isNaN(parsed.getTime()) ? undefined : parsed.toISOString();
+}
+
 function mapAmplifyTask(item: Schema['Task']['type']): Task {
   return {
     id: item.id,
@@ -39,7 +47,7 @@ export class AmplifyTaskRepository implements TaskRepository {
       description: task.description,
       status: task.status,
       priority: task.priority,
-      dueDate: task.dueDate,
+      dueDate: normalizeDueDate(task.dueDate),
       assignedTo: task.assignedTo,
     });
     if (errors?.length) throw new Error(errors[0].message);
@@ -47,7 +55,11 @@ export class AmplifyTaskRepository implements TaskRepository {
   }
 
   async update(id: string, updates: Partial<Task>): Promise<Task> {
-    const { data, errors } = await client.models.Task.update({ id, ...updates });
+    const { data, errors } = await client.models.Task.update({
+      id,
+      ...updates,
+      dueDate: normalizeDueDate(updates.dueDate),
+    });
     if (errors?.length) throw new Error(errors[0].message);
     return mapAmplifyTask(data!);
   }

@@ -21,6 +21,7 @@ export class CreateTaskUseCase {
     if (!input.title?.trim()) {
       throw new Error('Task title cannot be empty');
     }
+    console.log('Creating task with input:', input);
     return this.repo.create(input);
   }
 }

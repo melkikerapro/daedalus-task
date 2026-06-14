@@ -14,8 +14,9 @@ export class InMemoryTaskRepository implements TaskRepository {
   }
 
   async create(task: Omit<Task, 'id' | 'createdAt' | 'updatedAt'>): Promise<Task> {
-    const now = new Date().toISOString();
+    const now = new Date();
     const newTask: Task = { ...task, id: uuidv4(), createdAt: now, updatedAt: now };
+    console.log('Creating task in repository:', newTask);
     this.tasks.set(newTask.id, newTask);
     return newTask;
   }
@@ -25,7 +26,7 @@ export class InMemoryTaskRepository implements TaskRepository {
     if (!existing) {
       throw new Error(`Task ${id} not found`);
     }
-    const updated: Task = { ...existing, ...updates, id, updatedAt: new Date().toISOString() };
+    const updated: Task = { ...existing, ...updates, id, updatedAt: new Date() };
     this.tasks.set(id, updated);
     return updated;
   }

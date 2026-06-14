@@ -64,7 +64,7 @@ export function TaskList({
             </header>
 
             {task.description && <p style={{ marginBottom: 6, color: '#2d3748' }}>{task.description}</p>}
-            {task.dueDate && <p style={{ marginTop: 0, color: '#4a5568' }}>Due: {formatDate(task.dueDate)}</p>}
+            {task.dueDate && <p style={{ marginTop: 0, color: '#4a5568' }}>Due: {formatDate(task.dueDate.toString())}</p>}
 
             <div style={{ display: 'flex', gap: 8 }}>
               {task.status !== 'done' && (

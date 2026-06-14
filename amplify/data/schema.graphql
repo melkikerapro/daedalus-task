@@ -7,7 +7,7 @@ type Task @model @auth(rules: [{ allow: owner }, { allow: private, operations: [
   # Allowed values: low | medium | high
   priority: String!
   dueDate: AWSDateTime
-  assignedTo: String
+  assignedTo: String!
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
 }
